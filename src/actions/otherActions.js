@@ -1,19 +1,24 @@
 import XLSX from 'xlsx'
 import { saveAs } from 'file-saver'
 
-export const exportExcel = (data, columns) => {
+export const exportExcel = (data) => {
 	let dataSheets = []
-	let titles = []
+	let titles = ["Rank", "NCTID", "Title", "Sponsor", "Completion Date"]
 
-	columns.forEach((col) => {
-		if(col !== "(All)") titles.push(col)
-	})
 	dataSheets.push(titles)
 
 	data.forEach((entry) => {
 		let content = []
-		columns.forEach((col) => {
+		titles.forEach((col) => {
 			let key = ""
+			switch(col) {
+				case "Rank": key = "rank"; break
+				case "NCTID": key = "nctnumber"; break
+				case "Title": key = "title"; break
+				case "Sponsor": key = "sponsor"; break
+				case "Completion Date": key = "completiondate"; break
+				default: break
+			}
 			content.push(entry[key])
 		})
 		dataSheets.push(content)

@@ -63,8 +63,8 @@ class TableInfo extends Component {
 		this.props.updateData(this.props.data, this.props.filters)
 	}
 
-	exportExcel(data, col) {
-		exportExcel(data, col)
+	exportExcel(data) {
+		exportExcel(data)
 	}
 
 	render() {
@@ -148,7 +148,7 @@ class TableInfo extends Component {
 							<button className="buttons info-buttons" onClick={this.clearAllFilter.bind(this)}>CLEAR ALL</button> 
 						</li>
 					}
-					<li className="filterTags export-button"><button className="buttons success-buttons my-2 my-sm-0" onClick={this.exportExcel.bind(this, this.props.companies, this.props.columns)}>Export Table</button></li>
+					<li className="filterTags export-button"><button className="buttons success-buttons my-2 my-sm-0" onClick={this.exportExcel.bind(this, this.props.data)}>Export Table</button></li>
 				</ul>
 			</div>
 		)

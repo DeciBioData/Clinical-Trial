@@ -1,4 +1,4 @@
-import { FETCH_LIST, FETCH_DATA, UPDATE_DATA } from './types'
+import { FETCH_DATA, UPDATE_DATA } from './types'
 
 export const fetchData = () => dispatch => {
   fetch('https://sheetlabs.com/DECI/biomapCT')
