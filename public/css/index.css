@@ -1,0 +1,440 @@
+@font-face {
+    font-family: SofiaProLight;
+    src: url("../font/SofiaProLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: SofiaProMedium;
+    font-weight: bold;
+    src: url("../font/SofiaProMedium.otf") format("opentype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: SofiaProLight !important;
+	height: 100%;
+	font-size: 14px;
+	background-color: white;
+	color: #4B565F;
+	padding-top: 0;
+}
+
+a {
+	color: #0066CC;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #49896D;
+}
+
+.main {
+	height: auto;
+	overflow-y: auto;
+}
+
+/*=====================
+	Footer
+======================*/
+
+.footer {
+	background: #f3f3f3;
+	width: 100%;
+	bottom: 0;
+	margin-bottom: 0;
+}
+
+.footer-text {
+	padding-top: 0%;
+}
+
+/*==============
+	Customize 
+===============*/
+.customize-h1 {
+	font-family: SofiaProMedium !important;
+	font-size: 58px;
+}
+
+.customize-h2 {
+	font-family: SofiaProMedium !important;
+	font-size: 48px;
+}
+
+.customize-h3 {
+	font-family: SofiaProMedium !important;
+	font-size: 28px;
+}
+
+.additional-text {
+	font-size: 14px;
+}
+
+.logo-img {
+	background: #f3f3f3;
+	border-radius: 10px;	
+}
+
+/*====================
+	Inputs customize
+====================*/
+
+input {
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  padding:5px;
+  font-family: SofiaProLight;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+
+input:focus {
+	outline: 0;
+}
+
+.form-control:focus {
+	border-color: inherit !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+/*==============
+	Buttons
+================*/
+.buttons {
+	color: white;
+	padding: 0.5em 1em 0.5em 1em;
+	border-radius: 20px;
+	cursor: pointer;
+	text-align: left;
+	font-size: 12px;
+	border: none;
+	
+}
+
+.primary-buttons {
+	background: linear-gradient(to right,#42C3C3,#427A9E); 
+}
+
+.primary-buttons:hover {
+	background: #427A9E;
+}
+
+.primary-buttons:active {
+	background: #427A9E;
+}
+
+.primary-buttons:focus {outline:0;}
+
+.info-buttons {
+	background: white;
+	border: 1px solid #4B565F;
+	color: #0066CC;
+}
+
+.info-buttons:hover {
+	color: white;
+	background: #427A9E;
+}
+
+.info-buttons:active {
+	color: white;
+	background: #427A9E;
+}
+
+.info-buttons:focus {outline:0;}
+
+.success-buttons {
+	background: linear-gradient(to right,#72C879,#49896D); 
+}
+
+.success-buttons:hover {
+	background: #49896D;
+}
+
+.success-buttons:active {
+	background: #49896D;
+}
+
+.success-buttons:focus {outline:0;}
+
+.danger-buttons {
+	background: linear-gradient(to right,#E2985E,#da1b60);
+}
+
+.danger-buttons:hover {
+	background: #da1b60;
+}
+
+.danger-buttons:active {
+	background: #da1b60;
+}
+
+.danger-buttons:focus {outline:0;}
+
+.dropdown-buttons {
+	width: 300px;
+}
+
+/*===============
+	Heading
+================*/
+.heading {
+	background: #f3f3f3; 
+	margin-bottom: 1%;
+}
+
+.header-text {
+	padding-top: 0.5%;
+}
+
+/*===============
+	Side Nav
+================*/
+.side-section {
+	max-height: 700px;
+	overflow: auto;
+}
+
+.side-nav {
+	margin-top: 5%;
+	font-size: 14px;
+	background: white;
+	border: 0.5px solid rgb(224, 224, 224);
+}
+
+.company-count {
+	color: #0066CC;
+	font-weight: bold;
+	text-align: left;
+	margin-top: 5%;
+}
+
+.company-count h6 {
+	font-size: 24px;
+}
+
+.company-count, .company-search, .filter-slider, .category-filter, .employee-count, .rank-calculator {
+	padding-top: 5% ;
+	padding-left: 5% ;
+	padding-right: 5% ;
+	padding-bottom: 3% ;
+}
+
+.search-companyInput {
+	margin-left: 2%;
+	margin: auto;
+}
+
+/*===============
+	Table
+================*/
+.table-heading {
+	background-color: #f3f3f3;
+	color: black;
+}
+
+.table {
+	background: white;
+	overflow: hidden !important;
+}
+
+#tableData th, #tableData td {
+	max-width: 100px !important;
+	overflow: auto !important;
+}
+
+.data-table {
+	max-height: 700px;
+	overflow: auto;
+	margin-bottom: 1%;	
+}
+
+.companyName {
+	color: #0066CC;
+	font-weight: 600;
+}
+ 
+/*================
+	Pagination
+=================*/
+.page-item {
+	font-family: SofiaProMedium !important;
+	margin-right: 3%;
+}
+
+#page-input {
+	width: 50px;
+	text-align: center;
+}
+
+/*==================
+	Sliders
+===================*/
+.sliderLabel {
+	margin-bottom: 3%;
+	display: block;
+}
+
+.sliders {
+	width: 100%;
+	margin-top: 5%;
+	padding-left: 15%;
+}
+
+.sliderInputs {
+	width: 100%;
+}
+
+.slider-buttons {
+	margin-bottom: 3%;
+}
+
+.noUi-connect {
+	height: 5px !important;
+    background: #d3d3d3 !important;
+}
+
+.noUi-horizontal {
+	height: 5px !important;
+}
+
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+    width: 15px !important;
+    height: 15px !important;
+    box-shadow: none !important;
+    cursor: pointer;    
+}
+
+.noUi-horizontal .noUi-handle:focus, .noUi-vertical .noUi-handle:focus {
+    outline: 0;
+}
+
+.noUi-horizontal .noUi-handle::before, .noUi-horizontal .noUi-handle::after {
+    display: none;
+}
+
+.sliderInputs-Section{
+	width: 100%;
+	padding: 5%;
+	margin-bottom: 3%;
+}
+
+
+/*================
+Navbar items(Filters)
+=================*/
+.nav-item {
+	margin: 1%;
+}
+
+.popover-buttons {
+	color: #4B565F;
+}
+
+/*===============
+	Filter Tags
+===============*/
+.tags-section {
+	margin: 1%;
+	width: 100%;
+	background-color: #CEE8F2;
+}
+
+.tags-list {
+	list-style-type: none;
+}
+
+.filterTags {
+	float: left;
+	margin: 0.5em;
+}
+
+.filterTags span {
+	display: block;
+}
+
+/*===================
+	Others
+===================*/
+.hidden {
+	display: none;
+}
+
+.export-button {
+	float: right;
+	margin-right: 1%;
+}
+
+/*====================
+	box shadow effect 
+======================*/
+.with-shadow {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.with-shadow-light {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*====================
+	Dropdwon
+=====================*/
+.dropdown-menu {
+	height: 200px;
+	width: 300px;
+	overflow: auto;
+}
+
+.dropdown-item {
+	font-size: 12px;
+}
+
+.tagSearchInput {
+	width: 90%;
+	margin: 5%;
+	margin-top: 1%;
+	margin-bottom: 0;
+}
+
+/*========================
+	Loading spinner
+=======================*/
+.loading-text {
+	text-align: center;
+	color: #0066CC;
+}
+
+.loading-section {
+	margin-top: 20%;
+}
+
+.loading-icon {
+	margin-left: 50%;
+	margin-bottom: 3%;
+}
+
+@media only screen and (max-width: 1350px) {
+  .dropdown-buttons {
+  	width: 100%;
+  }
+  .data-table {
+  	max-height: 700px;
+  }
+}
+
+
+
+
