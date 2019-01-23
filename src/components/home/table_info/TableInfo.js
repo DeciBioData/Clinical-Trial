@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { exportExcel } from '../../../actions/otherActions'
-import { filterDropdownOptions, clearAll } from '../../../actions/filterActions'
+import { clearSliders, filterDropdownOptions, clearAll } from '../../../actions/filterActions'
 import { updateData } from "../../../actions/dataActions"
 
 class TableInfo extends Component {
@@ -16,7 +16,7 @@ class TableInfo extends Component {
 			biomarker: props.filters.biomarker.length === 0 ? null : props.filters.biomarker,
 			purpose: props.filters.purpose.length === 0 ? null : props.filters.purpose,
 			technology: props.filters.technology.length === 0 ? null : props.filters.technology,
-			enrollementvol: props.filters.enrollementvol[0] === 1 && props.filters.enrollementvol[1] === 10000 ? null : props.filters.enrollementvol,
+			enrollmentvol: props.filters.enrollmentvol[0] === 1 && props.filters.enrollmentvol[1] === 10000 ? null : props.filters.enrollmentvol,
 			biomarkercount: props.filters.biomarkercount[0] === 1 && props.filters.biomarkercount[1] === 80 ? null : props.filters.biomarkercount,
 			trialstartdate: (props.filters.trialstartdate[0] === 2000 && props.filters.trialstartdate[1] === 2018) || (props.filters.trialstartdate[0] === 0 && props.filters.trialstartdate[1] === 2018) ? null : props.filters.trialstartdate,
 			completiondate: (props.filters.completiondate[0] === 2000 && props.filters.completiondate[1] === 2040) || (props.filters.completiondate[0] === 0 && props.filters.completiondate[1] === 2040) ? null : props.filters.completiondate
@@ -33,7 +33,7 @@ class TableInfo extends Component {
 			biomarker: filters.biomarker.length === 0 ? null : filters.biomarker,
 			purpose: filters.purpose.length === 0 ? null : filters.purpose,
 			technology: filters.technology.length === 0 ? null : filters.technology,
-			enrollementvol: filters.enrollementvol[0] === 1 && filters.enrollementvol[1] === 10000 ? null : filters.enrollementvol,
+			enrollmentvol: filters.enrollmentvol[0] === 1 && filters.enrollmentvol[1] === 10000 ? null : filters.enrollmentvol,
 			biomarkercount: filters.biomarkercount[0] === 1 && filters.biomarkercount[1] === 80 ? null : filters.biomarkercount,
 			trialstartdate: (filters.trialstartdate[0] === 2000 && filters.trialstartdate[1] === 2018) || (filters.trialstartdate[0] === 0 && filters.trialstartdate[1] === 2018) ? null : filters.trialstartdate,
 			completiondate: (filters.completiondate[0] === 2000 && filters.completiondate[1] === 2040) || (filters.completiondate[0] === 0 && filters.completiondate[1] === 2040) ? null : filters.completiondate
@@ -41,8 +41,8 @@ class TableInfo extends Component {
 	}
 
 	clearFilters(type, content) {
-		const dropdownList = ["sponsor", "phase", "enrollementstatus", "biomarkertype", "biomarker", "purpose", "technology"]
-		const sliderList = ["enrollementvol", "biomarkercount", "trialstartdate", "completiondate"]
+		const dropdownList = ["sponsor", "phase", "enrollmentstatus", "biomarkertype", "biomarker", "purpose", "technology"]
+		const sliderList = ["enrollmentvol", "biomarkercount", "trialstartdate", "completiondate"]
 
 		if(dropdownList.indexOf(type) !== -1) {
 			this.props.filterDropdownOptions(type, content)
@@ -70,7 +70,7 @@ class TableInfo extends Component {
 	render() {
 		const { 
 			nctnumber, sponsor, phase, enrollmentstatus, biomarkertype, biomarker,
-	    	purpose, technology, enrollementvol, biomarkercount,trialstartdate, completiondate
+	    	purpose, technology, enrollmentvol, biomarkercount,trialstartdate, completiondate
 	    } = this.state
 		const showItems = []
 
@@ -121,7 +121,7 @@ class TableInfo extends Component {
 			})
 		}
 
-		if(enrollementvol) showItems.push({ name: "Enrollement Vol.", type:"enrollementvol", content: `${parseInt(enrollementvol[0])} - ${parseInt(enrollementvol[1])}`})
+		if(enrollmentvol) showItems.push({ name: "Enrollment Vol.", type:"enrollmentvol", content: `${parseInt(enrollmentvol[0])} - ${parseInt(enrollmentvol[1])}`})
 		if(biomarkercount) showItems.push({ name: "Biomarker Count", type: "biomarkercount", content: `${parseInt(biomarkercount[0])} - ${parseInt(biomarkercount[1])}`})
 		if(trialstartdate) showItems.push({ name: "Start Date", type: "trialstartdate", content: `${parseInt(trialstartdate[0])} - ${parseInt(trialstartdate[1])}`})
 		if(completiondate) showItems.push({ name: "Completion Date", type: "completiondate", content: `${parseInt(completiondate[0])} - ${parseInt(completiondate[1])}`})
@@ -135,7 +135,7 @@ class TableInfo extends Component {
 								<li key={index} className="filterTags">
 									<span className="badge badge-light">
 									  	{item.name}: {item.content}
-									  	<button type="button" className="btn btn-sm btn-light" onClick={this.clearFilters.bind(this, item.name, item.type, item.content)}>
+									  	<button type="button" className="btn btn-sm btn-light" onClick={this.clearFilters.bind(this, item.type, item.content)}>
 								    		<span className="text-dark"><span aria-hidden="true">&times;</span></span>
 								  		</button>
 									</span>
@@ -161,5 +161,5 @@ const mapStateToProps = state => ({
 	filters: state.filter.filters
 })
 
-export default connect(mapStateToProps, { filterDropdownOptions, clearAll, updateData })(TableInfo)
+export default connect(mapStateToProps, { clearSliders,filterDropdownOptions, clearAll, updateData })(TableInfo)
 

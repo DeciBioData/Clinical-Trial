@@ -21,7 +21,8 @@ export function load(callback) {
             purpose: dataSet[4],
             indication: dataSet[5],
             sponsor: dataSet[6],
-            phase: dataSet[7]
+            phase: dataSet[7],
+            status: dataSet[8]
           })) || [];
           callback({
             DataSets

@@ -32,7 +32,7 @@ class SliderInput extends Component {
 		else {
 			this.props.filterSliders(this.props.name, [this.props.range[0], value])
 		}
-		this.props.updateData(this.props.companies, this.props.filters)
+		this.props.updateData(this.props.data, this.props.filters)
 	}
 
 	render() {
@@ -56,7 +56,7 @@ class SliderInput extends Component {
 }
 
 const mapStateToProps = state => ({
-	companies: state.data.companies,
+	data: state.data.data,
 	filters: state.filter.filters
 })
 

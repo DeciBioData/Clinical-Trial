@@ -44,7 +44,7 @@ class Filter extends Component {
 	            this.setState({
 	            	sponsorList: list.map((entry) => entry.sponsor),
 					phaseList: list.map((entry) => entry.phase),
-					statusList: list.map((entry) => entry.sample),
+					statusList: list.map((entry) => entry.status),
 					biomarkerTypeList: list.map((entry) => entry.biomarkertype),
 					biomarkerGroupList:list.map((entry) => entry.biomarkergroup),
 					studyPurposeList: list.map((entry) => entry.purpose),
@@ -122,14 +122,19 @@ class Filter extends Component {
 						name="Purpose" type="purpose" list={studyPurposeList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
-
-				<div className="filter-slider">
-					<FilterInstruction name="Enrollement Volume" type="EnrollementVolume" result={`( ${filters.enrollementvol[0]} - ${filters.enrollementvol[1]} )`}
-						content='Filter down trails by selecting their minimum and maximum enrollement volume'/>
-					<Slider type="enrollementvol" value={filters.enrollementvol} range={{min: 1, max: 10000}}/>
+				<div className="category-filter">
+					<FilterInstruction name="Technology" type="Technology" content='Filter down trails by technology'/>
+					<DropdownOptions 
+						name="Technology" type="technology" list={technologyList} updateData={this.updateData.bind(this)}
+						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="filter-slider">
-					<FilterInstruction name="Biomarker Count" type="Count" result={`( ${filters.biomarkercount[0]} - ${filters.biomarkercount[1]} )`}
+					<FilterInstruction name="Enrollment Volume" type="EnrollmentVolume" result={`( ${Math.round(filters.enrollmentvol[0])} - ${Math.round(filters.enrollmentvol[1])} )`}
+						content='Filter down trails by selecting their minimum and maximum enrollment volume'/>
+					<Slider type="enrollmentvol" value={filters.enrollmentvol} range={{min: 1, max: 10000}}/>
+				</div>
+				<div className="filter-slider">
+					<FilterInstruction name="Biomarker Count" type="Count" result={`( ${Math.round(filters.biomarkercount[0])} - ${Math.round(filters.biomarkercount[1])} )`}
 						content='Filter down trails by selecting their minimum and maximum count of biomarker count'/>
 					<Slider type="biomarkercount" value={filters.biomarkercount} range={{min: 1, max: 80}}/>
 				</div>
@@ -143,7 +148,7 @@ class Filter extends Component {
 					<FilterInstruction name="Trial End Date" type="TrialEndDate" 
 						result={`( ${filters.completiondate[0] === 0 ? filters.completiondate[1] === 2000 ? 0 : 2000 : filters.completiondate[0]} - ${filters.completiondate[1]} )`}
 						content='Filter down trials by selecting their minimum and maximum end date'/>
-					<Slider type="completiondate" value={filters.completiondate} range={{min: 2000, max: 2018}}/>
+					<Slider type="completiondate" value={filters.completiondate} range={{min: 2000, max: 2040}}/>
 				</div>
 
 			</div>

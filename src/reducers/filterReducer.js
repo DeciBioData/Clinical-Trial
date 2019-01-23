@@ -14,7 +14,7 @@ const initialState = {
 	    biomarker: [],
 	    purpose: [],
 	    technology: [],
-	    enrollementvol: [1, 10000],
+	    enrollmentvol: [1, 10000],
 	    biomarkercount: [1, 80],
 	    trialstartdate: [2000, 2018],
 	    completiondate: [2000, 2040]
@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
 	switch(action.type) {
 
 		case FILTER_NAME:
-			state.filters.name = action.payload
+			state.filters.nctnumber = action.payload
 			return {
 				...state,
 				filters: state.filters
@@ -33,30 +33,15 @@ export default function(state = initialState, action) {
 			break
 
 		case FILTER_DROPDOWNOPTIONS:
-			switch(action.payload.type) {
-				case 'column':
-				    let typeIndex = state.columns.indexOf(action.payload.item)
-				    if(typeIndex === -1) state.columns.push(action.payload.item)
-				    else {
-				      state.columns.splice(typeIndex, 1)
-				    }
-				    return {
-				    	...state,
-				    	columns: state.columns
-				    }
-					break
-				default:
-				    typeIndex = state.filters[action.payload.type].indexOf(action.payload.item)
-				    if(typeIndex === -1) state.filters[action.payload.type].push(action.payload.item)
-				    else {
-				      state.filters[action.payload.type].splice(typeIndex, 1)
-				    }
-					return {
-						...state,
-						filters: state.filters
-					}
-					break
-			}
+		    let typeIndex = state.filters[action.payload.type].indexOf(action.payload.item)
+		    if(typeIndex === -1) state.filters[action.payload.type].push(action.payload.item)
+		    else {
+		      state.filters[action.payload.type].splice(typeIndex, 1)
+		    }
+			return {
+				...state,
+				filters: state.filters
+			}		
 			break
 
 		case CLEAR_DROPDOWNOPTIONS:
@@ -95,9 +80,9 @@ export default function(state = initialState, action) {
 		    filters.enrollmentstatus = []
 		    filters.biomarkertype = []
 		    filters.biomarker = []
-		    filters.studytype = []
+		    filters.purpose = []
 		    filters.technology = []
-		    filters.enrollementvol = [1, 10000]
+		    filters.enrollmentvol = [1, 10000]
 		    filters.biomarkercount = [1, 80]
 		    filters.trialstartdate = [2000, 2018]
 		    filters.completiondate = [2000, 2040]

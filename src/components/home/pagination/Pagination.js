@@ -30,7 +30,6 @@ class Pagination extends Component {
 
 	render() {
 		const { currentPage, lastPage } = this.props
-		console.log(currentPage, lastPage)
 		return (
 		    <nav aria-label="Page navigation example">
 		      <div className="page-section">

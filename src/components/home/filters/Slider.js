@@ -11,12 +11,12 @@ class Slider extends Component {
 
 	onSlide(render, handle, value, un, percent) {
 		this.props.filterSliders(this.props.type, value)
-		this.props.updateData(this.props.companies, this.props.filters)
+		this.props.updateData(this.props.data, this.props.filters)
 	}
 
 	onChange(render, handle, value, un, percent) {
 		this.props.filterSliders(this.props.type, value)
-		this.props.updateData(this.props.companies, this.props.filters)
+		this.props.updateData(this.props.data, this.props.filters)
 	}
 
 	render() {
@@ -44,7 +44,7 @@ class Slider extends Component {
 }
 
 const mapStateToProps = state => ({
-	companies: state.data.companies,
+	data: state.data.data,
 	filters: state.filter.filters
 })
 

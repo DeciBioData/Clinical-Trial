@@ -10,11 +10,11 @@ const initialState = {
 export default function(state = initialState, action) {
 	switch(action.type) {
 		case CHANGE_PAGE_NUMBER:
-	    //prevent page out of bound
-	    let currentPage = action.payload
-	    let lastPage = state.lastPage
-	    if(currentPage <= 0) currentPage = 1
-	    else if(currentPage > lastPage) currentPage = lastPage
+		    //prevent page out of bound
+		    let currentPage = action.payload
+		    let lastPage = state.lastPage
+		    if(currentPage <= 0) currentPage = 1
+		    else if(currentPage > lastPage) currentPage = lastPage
 			return {
 				...state,
 				currentPage
