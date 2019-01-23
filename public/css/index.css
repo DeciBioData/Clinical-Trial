@@ -266,6 +266,22 @@ input:focus {
 	color: #0066CC;
 	font-weight: 600;
 }
+
+.number-column {
+	width: 5%;
+}
+
+.title-column {
+	width: 50%;
+}
+
+.sub-title-column {
+	width: 25%;
+}
+
+.data-column {
+	width: 10%;
+}
  
 /*================
 	Pagination

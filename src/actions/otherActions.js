@@ -27,7 +27,6 @@ export const exportExcel = (data) => {
 	let wb = XLSX.utils.book_new()
 	wb.SheetNames.push("Test Sheet")
 	let ws_data = dataSheets
-	console.log(dataSheets)
 	var ws = XLSX.utils.aoa_to_sheet(ws_data)
 	wb.Sheets["Test Sheet"] = ws
 	let wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'})

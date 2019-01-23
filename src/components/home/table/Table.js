@@ -13,7 +13,7 @@ class Table extends Component {
 					    <tr>
 					    	<th>Rank</th>
 					    	<th>NCTID</th>
-					    	<th>Title</th>
+					    	<th className="title-column">Title</th>
 					    	<th>Sponsor</th>
 					    	<th>Completion Date</th>
 					    </tr>
@@ -23,11 +23,11 @@ class Table extends Component {
 				    		partialData.map((data, index) => {
 				    			return (
 							    	<tr key={index}>
-							    		<th>{data.rank}</th>
-							    		<td>{data.nctnumber}</td>
-							    		<td>{data.title}</td>
-							    		<td>{data.sponsor}</td>
-							    		<td>{data.completiondate}</td>
+							    		<th className="number-column">{data.rank}</th>
+							    		<td className="data-column"><a href={`https://clinicaltrials.gov/ct2/show/${data.nctnumber}`} target="_blank" rel="noopener noreferrer">{data.nctnumber}</a></td>
+							    		<td className="title-column">{data.title}</td>
+							    		<td className="sub-title-column">{data.sponsor}</td>
+							    		<td className="data-column">{data.completiondate}</td>
 							    	</tr>
 				    			)
 				    		})
