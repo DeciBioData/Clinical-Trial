@@ -28,7 +28,7 @@ class Layout extends Component {
 						<div className="data-table">
 							<TableInfo />
 							<Table processedData={this.props.processedData}/>
-							<Pagination />
+							<Pagination dataLength={this.props.processedData.length}/>
 						</div>
 					</div>
 				</div>

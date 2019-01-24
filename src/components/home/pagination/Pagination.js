@@ -4,16 +4,39 @@ import { changePageNumber, changeLastPageNumber } from "../../../actions/paginat
 
 class Pagination extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			currentPage: props.currentPage,
+			lastPage: props.lastPage
+		}
+	}
+
 	componentDidMount() {
+		this.setPage(this.props.dataLength)
+	}
+
+	componentWillReceiveProps(nextProps) {
     	//set new max page based on the new dataSets after filtering
-	    let lastPage = Math.ceil(this.props.dataLength / this.props.numberOfShowPerPage)
+	    let lastPage = Math.ceil(nextProps.dataLength / this.props.numberOfShowPerPage)
+	    if(lastPage <= 0) lastPage = 1
+
+	    let currentPage = nextProps.currentPage
+	    if(currentPage > lastPage) currentPage = lastPage
+
+	    this.setState({ currentPage, lastPage })	
+	}
+
+	setPage(dataLength) {
+    	//set new max page based on the new dataSets after filtering
+	    let lastPage = Math.ceil(dataLength / this.props.numberOfShowPerPage)
 	    if(lastPage <= 0) lastPage = 1
 
 	    let currentPage = this.props.currentPage
 	    if(currentPage > lastPage) currentPage = lastPage
 
 	    this.props.changePageNumber(currentPage)
-	  	this.props.changeLastPageNumber(lastPage)		
+	  	this.props.changeLastPageNumber(lastPage)			
 	}
 
 	increasePageNumber() {
@@ -29,7 +52,7 @@ class Pagination extends Component {
 	}
 
 	render() {
-		const { currentPage, lastPage } = this.props
+		const { currentPage, lastPage } = this.state
 		return (
 		    <nav aria-label="Page navigation example">
 		      <div className="page-section">
@@ -55,7 +78,6 @@ class Pagination extends Component {
 }
 
 const mapStateToProps = state => ({
-	dataLength: state.data.processedData.length,
 	numberOfShowPerPage: state.pagination.numberOfShowPerPage,
 	currentPage: state.pagination.currentPage,
 	lastPage: state.pagination.lastPage

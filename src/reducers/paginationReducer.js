@@ -14,7 +14,7 @@ export default function(state = initialState, action) {
 		    let currentPage = action.payload
 		    let lastPage = state.lastPage
 		    if(currentPage <= 0) currentPage = 1
-		    else if(currentPage > lastPage) currentPage = lastPage
+		    
 			return {
 				...state,
 				currentPage
