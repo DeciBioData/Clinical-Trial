@@ -79,7 +79,7 @@ class Filter extends Component {
 		return (
 			<div className="side-nav with-shadow-light">
 				<div className="company-count">
-					<h6><strong>{processedData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong> Clinical Trails</h6>
+					<h6><strong>{processedData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong> Clinical Trials</h6>
 				</div>
 				<div className="mr-auto company-search">
 					<FilterInstruction name="Search Biomarker" type="BiomarkerSearch" content="Search for the exact name of the biomarkers"/>
@@ -87,13 +87,13 @@ class Filter extends Component {
 			  	</div>
 
 				<div className="category-filter">
-					<FilterInstruction name="Trial Sponsor" type="Sponsor" content="Filter down trails by selecting sponsors. Use the search bar to look up relevant tags"/>
+					<FilterInstruction name="Trial Sponsor" type="Sponsor" content="Filter down trials by selecting sponsors. Use the search bar to look up relevant tags"/>
 					<DropdownOptions 
 						name="Sponsor" type="sponsor" list={sponsorList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
-					<FilterInstruction name="Phase" type="Phase" content='Filter down trails by selecting the phase.'/>
+					<FilterInstruction name="Phase" type="Phase" content='Filter down trials by selecting the phase.'/>
 					<DropdownOptions 
 						name="Phase" type="phase" list={phaseList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
@@ -105,37 +105,37 @@ class Filter extends Component {
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
-					<FilterInstruction name="Biomarker Type" type="Type" content='Filter down trails by biomarker types'/>
+					<FilterInstruction name="Biomarker Type" type="Type" content='Filter down trials by biomarker types'/>
 					<DropdownOptions 
 						name="Type" type="biomarkertype" list={biomarkerTypeList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
-					<FilterInstruction name="Biomarker Grouping - Granular" type="Group" content='Filter down trails by biomarker grouping'/>
+					<FilterInstruction name="Biomarker Grouping - Granular" type="Group" content='Filter down trials by biomarker grouping'/>
 					<DropdownOptions 
 						name="Group" type="biomarker" list={biomarkerGroupList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
-					<FilterInstruction name="Study Purpose" type="Purpose" content='Filter down trails by study purpose'/>
+					<FilterInstruction name="Study Purpose" type="Purpose" content='Filter down trials by study purpose'/>
 					<DropdownOptions 
 						name="Purpose" type="purpose" list={studyPurposeList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
-					<FilterInstruction name="Technology" type="Technology" content='Filter down trails by technology'/>
+					<FilterInstruction name="Technology" type="Technology" content='Filter down trials by technology'/>
 					<DropdownOptions 
 						name="Technology" type="technology" list={technologyList} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="filter-slider">
 					<FilterInstruction name="Enrollment Volume" type="EnrollmentVolume" result={`( ${Math.round(filters.enrollmentvol[0])} - ${Math.round(filters.enrollmentvol[1])} )`}
-						content='Filter down trails by selecting their minimum and maximum enrollment volume'/>
+						content='Filter down trials by selecting their minimum and maximum enrollment volume'/>
 					<Slider type="enrollmentvol" value={filters.enrollmentvol} range={{min: 1, max: 10000}}/>
 				</div>
 				<div className="filter-slider">
 					<FilterInstruction name="Biomarker Count" type="Count" result={`( ${Math.round(filters.biomarkercount[0])} - ${Math.round(filters.biomarkercount[1])} )`}
-						content='Filter down trails by selecting their minimum and maximum count of biomarker count'/>
+						content='Filter down trials by selecting their minimum and maximum count of biomarker count'/>
 					<Slider type="biomarkercount" value={filters.biomarkercount} range={{min: 1, max: 80}}/>
 				</div>
 				<div className="filter-slider">

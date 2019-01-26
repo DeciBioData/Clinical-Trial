@@ -24,7 +24,7 @@ class Header extends Component {
 
 			  <div className="collapse navbar-collapse" id="navbarSupportedContent">
 			  	<div className="mr-auto align-items-center header-text">
-					<h5><strong>DeciBio BioTrack</strong> | Clinical Trail</h5>
+					<h5><strong>DeciBio BioTrack</strong> | Clinical Trial</h5>
 				</div>
 			  	<div>
 			  		{ auth0Client.isAuthenticated() ? <SignOutButton signOut={this.signOut.bind(this)}/> : null }
