@@ -1,36 +1,17 @@
 /* eslint-disable */
 import React, { Component } from 'react'
 import { withAuth } from '@okta/okta-react'
+import { withRouter } from 'react-router-dom'
+import auth0Client from '../auth/Auth'
 import SignOutButton from './SignOutButton'
 
 class Header extends Component {
 
-	constructor(props) {
-		super(props)
-		this.state = {
-			authenticated: null
-		}
+	signOut() {
+		auth0Client.signOut();
+		this.props.history.replace('/');
 	}
-
-	componentDidMount() {
-		this.checkAuthentication()
-	}
-
-	componentDidUpdate() {
-		this.checkAuthentication()
-	}
-
-	async checkAuthentication() {
-		const authenticated = await this.props.auth.isAuthenticated();
-		if (authenticated !== this.state.authenticated) {
-		  this.setState({ authenticated })
-		}
-	}
-
-	async signOut() {
-		this.props.auth.logout('/');
-	}
-
+	
 	render() {
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark heading with-shadow-light">
@@ -46,7 +27,7 @@ class Header extends Component {
 					<h5><strong>DeciBio BioTrack</strong> | Clinical Trail</h5>
 				</div>
 			  	<div>
-			  		{ this.state.authenticated ? <SignOutButton signOut={this.signOut.bind(this)}/> : null }
+			  		{ auth0Client.isAuthenticated() ? <SignOutButton signOut={this.signOut.bind(this)}/> : null }
 			  	</div>
 			  </div>
 			</nav>
@@ -54,4 +35,4 @@ class Header extends Component {
 	}
 }
 
-export default withAuth(Header)
+export default withRouter(Header)
