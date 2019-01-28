@@ -6,7 +6,15 @@ import {
 export const filterName = (name) => dispatch => {
 	dispatch({
 		type: FILTER_NAME,
-		payload: name
+		payload: name,
+		meta: {
+			mixpanel: {
+			  event: 'Search name',
+			  props: {
+			  	input: name
+			  }
+			}
+		}
 	})
 }
 
@@ -16,6 +24,15 @@ export const filterDropdownOptions = (type, item) => dispatch => {
 		payload: {
 			type,
 			item
+		},
+		meta: {
+			mixpanel: {
+			  event: 'Dropdown filter',
+			  props: {
+			    type,
+			    tags: item
+			  }
+			}
 		}
 	})
 }
@@ -40,7 +57,16 @@ export const filterSliders = (type, newRange) => dispatch => {
 		payload: {
 			type,
 			newRange
-		}
+		},
+          meta: {
+            mixpanel: {
+              event: 'Slider filter',
+              props: {
+                type,
+                range: newRange
+              }
+            }
+          }
 	})
 }
 

@@ -7,6 +7,7 @@
     "@okta/okta-signin-widget": "^2.14.0",
     "auth0-js": "^9.9.1",
     "file-saver": "^2.0.0",
+    "mixpanel-browser": "^2.26.0",
     "nouislider-react": "^2.1.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
@@ -18,6 +19,7 @@
     "react-spinkit": "^3.0.0",
     "reactstrap": "^7.0.2",
     "redux": "^4.0.1",
+    "redux-mixpanel-middleware": "^1.0.1",
     "redux-thunk": "^2.3.0",
     "xlsx": "^0.14.1"
   },
