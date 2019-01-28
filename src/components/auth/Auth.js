@@ -58,7 +58,7 @@ class Auth {
   signOut() {
     // clear id token, profile, and expiration
     this.auth0.logout({
-      returnTo: 'https://biotrack-iobiomap.netlify.com/',
+      returnTo: 'https://biotrack-iobiomap.netlify.com',
       clientID: 'n8YnOaq7lPi3ocfiPPR2r7B7ANuUXnBn',
     });
   }
