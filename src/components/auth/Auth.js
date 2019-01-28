@@ -7,7 +7,7 @@ class Auth {
       domain: 'decibio.auth0.com',
       audience: 'https://decibio.auth0.com/userinfo',
       clientID: 'n8YnOaq7lPi3ocfiPPR2r7B7ANuUXnBn',
-      redirectUri: 'http://biotrack-iobiomap.netlify.com/callback',
+      redirectUri: 'https://biotrack-iobiomap.netlify.com/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
