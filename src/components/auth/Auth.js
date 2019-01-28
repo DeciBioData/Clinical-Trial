@@ -6,8 +6,8 @@ class Auth {
       // the following three lines MUST be updated
       domain: 'decibio.auth0.com',
       audience: 'https://decibio.auth0.com/userinfo',
-      clientID: 'dhGoPCGbk9Ys9KhvJsgFbPjiNfOHGTM5',
-      redirectUri: 'http://localhost:3000/callback',
+      clientID: 'n8YnOaq7lPi3ocfiPPR2r7B7ANuUXnBn',
+      redirectUri: 'https://biotrack-iobiomap.netlify.com//callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
@@ -58,8 +58,8 @@ class Auth {
   signOut() {
     // clear id token, profile, and expiration
     this.auth0.logout({
-      returnTo: 'http://localhost:3000',
-      clientID: 'dhGoPCGbk9Ys9KhvJsgFbPjiNfOHGTM5',
+      returnTo: 'https://biotrack-iobiomap.netlify.com/',
+      clientID: 'n8YnOaq7lPi3ocfiPPR2r7B7ANuUXnBn',
     });
   }
 
