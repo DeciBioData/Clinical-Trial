@@ -40,7 +40,7 @@ export const fetchData = () => dispatch => {
 
 export const updateData = (dataSet, filters) => dispatch => {
     const matchPrefix = (prefix, str) => {
-      if(!prefix.match(/^[a-zA-Z]+$/) && !prefix.match(/^[0-9]+$/)) return false
+      if(!prefix.match(/^[a-zA-Z0-9\s]+$/)) return false
       prefix = prefix.toLowerCase()
       str = str.toLowerCase()
 
