@@ -14,6 +14,9 @@
 #env
 .env.development
 
+#API KEY
+.env
+
 # misc
 .DS_Store
 .env.local
