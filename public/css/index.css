@@ -39,6 +39,7 @@ a:hover {
 .main {
 	height: auto;
 	overflow-y: auto;
+	margin-bottom: 100px;
 }
 
 /*=====================
@@ -410,8 +411,9 @@ Navbar items(Filters)
 =====================*/
 .dropdown-menu {
 	height: 200px;
-	width: 300px;
+	width: 100%;
 	overflow: auto;
+	position: relative;
 }
 
 .dropdown-item {
